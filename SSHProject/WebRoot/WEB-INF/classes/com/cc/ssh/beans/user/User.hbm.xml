@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >  
+  
+<hibernate-mapping package="com.cc.ssh.beans.user">  
+    <class name="User" table="T_USER">  
+        <!-- <id name="userId" column="userId">  
+            <generator class="uuid.hex"></generator>  
+        </id>   -->
+         <id name="userId" type="java.lang.Integer">
+            <column name="userId" length="50"/>
+            <generator class="native"></generator>
+        </id> 
+        <property name="username" column="userName" type="java.lang.String"  
+            not-null="true" length="16"></property>  
+        <property name="password" column="password" type="java.lang.String"  
+            not-null="true" length="16" />  
+        <property name="gender" column="gender" type="java.lang.Integer" length="1" />  
+    </class>  
+</hibernate-mapping>

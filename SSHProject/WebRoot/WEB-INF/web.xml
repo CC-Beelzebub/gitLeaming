@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>SSHProject</display-name>
+	<!-- <context-param> <param-name>struts2</param-name> <param-value> classpath:/struts.xml 
+		</param-value> </context-param> -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+		<!-- 字符过滤器 -->
+	<filter>
+	   <filter-name>encodeFilter</filter-name>
+	   <filter-class>com.cc.ssh.filter.EncodeFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>encodeFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 日志过滤器 -->
+	<filter>
+	     <filter-name>log</filter-name>
+	     <filter-class>com.cc.ssh.filter.LogFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>log</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+    
+	<!-- 控制hibernate Session的开关 -->
+	<!-- <filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	
+	<welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

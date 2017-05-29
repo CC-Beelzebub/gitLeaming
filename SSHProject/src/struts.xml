@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <include file="struts-default.xml" />  
+    <package name="com.cc.ssh.action.RegisterAction" extends="struts-default" namespace="/">  
+        <action name="register" class="com.cc.ssh.action.RegisterAction">  
+            <result name="input">/page/Register.jsp</result>  
+            <result name="success">/Success.jsp</result>  
+            <result name="error">/Fail.jsp</result>  
+        </action>  
+        
+        <action name="login" class="com.cc.ssh.action.login.LoginAction">  
+            <result name="input">/index.jsp</result>  
+            <result name="success">/Success.jsp</result>  
+            <result name="error">/Fail.jsp</result>  
+        </action>
+    </package>
+</struts>   
